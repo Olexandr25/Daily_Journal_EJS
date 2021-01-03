@@ -15,8 +15,6 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-const composeArr = [];
-
 app.get("/", function(req, res){
   res.render("home", {homeStartContent: homeStartingContent});
 });
@@ -30,8 +28,13 @@ app.get("/compose", function(req, res){
 });
 
 app.post("/compose", function(req, res){
-  let post = req.body.postTitle;
-  console.log(post);
+  const post = {
+    title: req.body.postTitle,
+    content: req.body.postBody
+  };
+
+  console.log(post['title']);
+  console.log(post['content']);
 });
 
 app.get("/contact", function(req, res){
