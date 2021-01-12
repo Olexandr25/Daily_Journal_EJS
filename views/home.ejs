@@ -2,18 +2,16 @@
 
     <h1>Home</h1>
     <p><%= homeStartContent %></p>
-    <% console.log(homePosts); %>
-
-    <h1><%= titlePosts %></h1>
-    <p><%= contentPosts %></p>
-
-
 
     <% homePosts.forEach(post => console.log(post.title)); %>
 
     <% homePosts.forEach(function (post){%>
         <h1><%= post.title %></h1>
-        <p><%= post.content %></p>
+        <p>
+            <%= post.content.substring(0, 100) + " ..." %>
+            <a href="/posts/<%= post.title%>">Read More</a>
+        </p>
+
     <% }); %>
 
 
